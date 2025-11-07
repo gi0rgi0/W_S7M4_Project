@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from './App'
-
+import txt from "../i18n/index.json"
 describe('Module 4 Project Tests', () => {
   describe('English Language', () => {
     /*
@@ -12,9 +12,38 @@ describe('Module 4 Project Tests', () => {
     */
     test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
       render(<App lang="en" />)
-      expect(screen.getByText("Create an Account")).toBeVisible()
+      expect(screen.getByText(txt.en.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
     })
+    test(`Text fav langugage`, () => {
+      render(<App lang="en" />)
+      expect(screen.getByText(txt.en.TEXT_FAV_LANG_JS)).toBeVisible()
   })
+  test('test fav language rust is visible',() =>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_FAV_LANG_RUST)).toBeVisible()
+
+  })
+  test('test fav food is visible',()=>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_2)).toBeVisible()
+
+  })
+  test('test fav food is visible',()=>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_1)).toBeVisible()
+
+  })
+  test('test fav food is visible',()=>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_3)).toBeVisible()
+
+  })
+  test('test fav food is visible',()=>{
+    render(<App lang="en"/>)
+    expect(screen.getByPlaceholderText(txt.en.PLACEHOLDER_USERNAME)).toBeVisible()
+
+  })
+})
   describe('Spanish Language', () => {
     /*
       👉 TASK 3
