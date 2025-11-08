@@ -46,6 +46,46 @@ describe('Module 4 Project Tests', () => {
  
 })
   describe('Spanish Language', () => {
+ test(`TEXT_HEADING_CREATE_ACCOUNT is visible`, () => {
+      render(<App lang="en" />)
+      expect(screen.getByText(txt.en.TEXT_HEADING_CREATE_ACCOUNT)).toBeVisible()
+    })
+    test(`Text fav langugage`, () => {
+      render(<App lang="en" />)
+      expect(screen.getByText(txt.en.TEXT_FAV_LANG_JS)).toBeVisible()
+  })
+    test('test fav language rust is visible',() =>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_FAV_LANG_RUST)).toBeVisible()
+
+  })
+   test('test fav food is visible',()=>{
+    render(<App lang="en"/>)
+    expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_2)).toBeVisible()
+
+  })
+    test('test fav food is visible',()=>{
+    render(<App lang="esp"/>)
+    expect(screen.getByText(txt.esp.TEXT_OPT_FAV_FOOD_1)).toBeVisible()
+
+  })
+    test('test fav food is visible',()=>{
+    render(<App lang="esp"/>)
+    expect(screen.getByText(txt.esp.TEXT_OPT_FAV_FOOD_3)).toBeVisible()
+
+  })
+    test('test placeholder name is visible',()=>{
+    render(<App lang="esp"/>)
+    expect(screen.getByPlaceholderText(txt.esp.PLACEHOLDER_USERNAME)).toBeVisible()
+
+  })
+ 
+
+
+
+
+
+
     /*
       👉 TASK 3
 
