@@ -18,31 +18,32 @@ describe('Module 4 Project Tests', () => {
       render(<App lang="en" />)
       expect(screen.getByText(txt.en.TEXT_FAV_LANG_JS)).toBeVisible()
   })
-  test('test fav language rust is visible',() =>{
+    test('test fav language rust is visible',() =>{
     render(<App lang="en"/>)
     expect(screen.getByText(txt.en.TEXT_FAV_LANG_RUST)).toBeVisible()
 
   })
-  test('test fav food is visible',()=>{
+   test('test fav food is visible',()=>{
     render(<App lang="en"/>)
     expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_2)).toBeVisible()
 
   })
-  test('test fav food is visible',()=>{
+    test('test fav food is visible',()=>{
     render(<App lang="en"/>)
     expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_1)).toBeVisible()
 
   })
-  test('test fav food is visible',()=>{
+    test('test fav food is visible',()=>{
     render(<App lang="en"/>)
     expect(screen.getByText(txt.en.TEXT_OPT_FAV_FOOD_3)).toBeVisible()
 
   })
-  test('test fav food is visible',()=>{
+    test('test placeholder name is visible',()=>{
     render(<App lang="en"/>)
     expect(screen.getByPlaceholderText(txt.en.PLACEHOLDER_USERNAME)).toBeVisible()
 
   })
+ 
 })
   describe('Spanish Language', () => {
     /*
@@ -52,7 +53,25 @@ describe('Module 4 Project Tests', () => {
     */
   })
   describe('getEntriesByKeyPrefix', () => {
+    
     test('can extract the correct data', () => {
+
+const obj = {
+      abc_1: "data_abc_1",
+      abc_2: "data_abc_2",
+      xyz_1: "data_xyz_1",
+      abc_3: "data_abc_3",
+    }
+
+    const expected = [
+      ["abc_1", "data_abc_1"],
+      ["abc_2", "data_abc_2"],
+      ["abc_3", "data_abc_3"],
+    ]
+
+
+      expect(getEntriesByKeyPrefix(obj,"abc")).toEqual(expected)
+  
     /*
       👉 TASK 4 part 2
 
@@ -70,7 +89,7 @@ describe('Module 4 Project Tests', () => {
 function getEntriesByKeyPrefix(obj, keyPrefix) {
   /*
     👉 TASK 4 part 1
-
+  
     Implement a function that takes as first argument an object `obj` such as this:
 
     {
@@ -103,4 +122,8 @@ function getEntriesByKeyPrefix(obj, keyPrefix) {
     The properties that match the `keyPrefix` are returned inside an array holding key-value-pair sub-arrays.
 
   */
+    return Object.entries(obj).filter(([key]) =>key.split('_')[0] === keyPrefix)
 }
+    
+
+    
